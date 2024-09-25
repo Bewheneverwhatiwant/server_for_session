@@ -10,10 +10,10 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
 
-logging:
-  level:
-    org.hibernate.SQL: debug
-    org.hibernate.type: trace
-    org.springframework.jdbc: debug
+#logging:
+#  level:
+#    org.hibernate.SQL: debug
+#    org.hibernate.type: trace
+#    org.springframework.jdbc: debug

@@ -2,6 +2,7 @@ package com.session.front.service;
 
 import com.session.front.domain.*;
 import com.session.front.repository.UserRepository;
+import jakarta.persistence.EntityExistsException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +18,7 @@ public class UserService {
         }
         User selectedUser = userRepository.findByUserId(dto.getUserId()).orElse(null);
         if (selectedUser != null){
-            throw new RuntimeException("이미 존재하는 아이디입니다.");
+            throw new EntityExistsException("이미 존재하는 아이디입니다.");
         }
         User newUser = new User(dto.getUserId(), dto.getPassword(), dto.getEmail());
 
