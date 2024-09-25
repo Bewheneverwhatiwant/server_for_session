@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: front
+
+  datasource:
+    url: jdbc:mysql://db.klr.kr:3306/lion_ny?useSSL=false&serverTimezone=UTC&characterEncoding=UTF-8&allowPublicKeyRetrieval=true&useUnicode=true
+    username: lion_ny
+    password: likelion
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+
+logging:
+  level:
+    org.hibernate.SQL: debug
+    org.hibernate.type: trace
+    org.springframework.jdbc: debug
