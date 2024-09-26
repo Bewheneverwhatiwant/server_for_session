@@ -15,6 +15,7 @@ public class UserController {
 
     // 회원가입 API
     @PostMapping("/signup")
+    //@CrossOrigin(origins = "http://localhost:3000")
     public String createUser(@RequestBody CreateUserReqDto dto) {
         userService.createUser(dto);
         return "회원가입이 완료되었습니다.";
@@ -22,6 +23,7 @@ public class UserController {
 
     // 로그인 API
     @PostMapping("/login")
+    //@CrossOrigin(origins = "http://localhost:3000")
     public Long loginUser(@RequestBody LoginUserReqDto dto) {
         return userService.loginUSer(dto);
     }
