@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class ExceptionControllerAdvice {
 
     @ExceptionHandler({RuntimeException.class})
-    public String handleBaseException(Exception e){
-        return "오류임";
+    public ResponseEntity<String> handleBaseException(RuntimeException e) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
     }
 
     @ExceptionHandler({EntityExistsException.class})

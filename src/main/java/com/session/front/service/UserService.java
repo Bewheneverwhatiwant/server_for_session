@@ -26,6 +26,13 @@ public class UserService {
     }
 
     public Long loginUSer(LoginUserReqDto dto){
+
+        // 아이디나 비밀번호가 비어있는지 확인
+        if (dto.getUserId() == null || dto.getUserId().isEmpty() ||
+                dto.getPassword() == null || dto.getPassword().isEmpty()) {
+            throw new RuntimeException("필수 필드를 모두 입력하세요.");
+        }
+
         User selectedUser = userRepository.findByUserIdAndPassword(dto.getUserId(), dto.getPassword())
                 .orElseThrow(() -> new RuntimeException("아이디 또는 비밀번호가 틀렸습니다."));
         return selectedUser.getId();
